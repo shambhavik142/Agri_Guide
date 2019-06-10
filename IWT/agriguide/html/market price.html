@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>AgriGuide</title>
+        <!-- Bootstrap core CSS -->
+        <link href="../../../IWT/agriguide/bootstrap/bootstrap.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="../../../IWT/agriguide/css/home.css" rel="stylesheet">
+
+
+        <!--Script-->
+        <script type="text/javascript">
+ var table;
+ var url='https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd0000016570b7a01ec64eb24ab755e8f1e43655&format=json&offset=0';
+ var Http = new XMLHttpRequest();
+
+Http.open("GET", url);
+Http.send();
+Http.onload=(e)=>{
+    
+var data=Http.responseText;
+var jsonResponse = JSON.parse(data);
+"alert(jsonResponse.records[0].state);"
+table+="<table class='table table-striped'><thead><tr><th>STATE</th><th>DISTRICT</th><th>MARKET</th><th>COMMODITY</th><th>VARIETY</th><th>ARRIVAL DATE</th><th>MIN PRICE</th><th>MAX PRICE</th><th>MODAL PRICE</th> </tr></thead><tbody>"
+for (x in jsonResponse.records){
+    table+="<tr><td>"+jsonResponse.records[x].state+"</td>";
+    table+="<td>"+jsonResponse.records[x].district+"</td>";
+    table+="<td>"+jsonResponse.records[x].market+"</td>";
+    table+="<td>"+jsonResponse.records[x].commodity+"</td>";
+    table+="<td>"+jsonResponse.records[x].variety+"</td>";
+    table+="<td>"+jsonResponse.records[x].arrival_date+"</td>";
+    table+="<td>"+jsonResponse.records[x].min_price+"</td>";
+    table+="<td>"+jsonResponse.records[x].max_price+"</td>";
+    table+="<td>"+jsonResponse.records[x].modal_price+"</td></tr>";
+}
+table+="</tbody></table>"
+document.getElementById("demo").innerHTML = table;
+
+}
+</script>
+    </head>
+    <body>
+        
+                    <h2 class="sub-header">Check out latest prices</h2>
+                    <p id="demo"></p>
+    
+    </body>
+</html>

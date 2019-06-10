@@ -1,0 +1,106 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Crop Details</title>
+        <link rel="stylesheet" href="css/foundation.css"/>
+        <link rel="stylesheet" href="style.css"/>
+        <script type="text/javascript">
+        
+        function thisindex(elm){
+  var nodes = elm.parentNode.childNodes, node;
+  var i = 0, count = i;
+  while( (node=nodes.item(i++)) && node!=elm )
+    if( node.nodeType==1 ) count++;
+  return count;
+}
+
+function closeAll(index){
+  var len = document.getElementsByTagName("details").length;
+
+  for(var i=0; i<len; i++){
+    if(i != index){
+      document.getElementsByTagName("details")[i].removeAttribute("open");
+    }
+  }
+}
+</script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <h class="navbar-brand">AGRIGUIDE</h>
+        </nav>
+        <!-- End Navigation -->
+                    <div id="featured">
+                        <img src="https://www.desktop-background.com/p/2014/05/19/764890_banana-hd-wallpapers_3880x2196_h.jpg" alt="slide image">
+                    </div>
+       <div>
+           <h1>Banana</h1>
+           <p>
+               Banana is the oldest and commonest fruit known to the mankind. It is one of the important fruits that constitutes second largest fruit industry in India. Banana contributes 37% to total fruit production in India. Other than fresh fruits, bananas can be consumed as processed in various forms like chips, powder, flakes, etc. Banana pseudo stem is chopped and used as cattle feed. The leaves of banana plant are used as plate from centuries. There are around 12 local and 30 exotic varieties are grown commercially. Based on the consumption pattern, there are two main types: the table banana and the plantain (cooking banana), and almost 1,000 varieties. Each of these types varies subtly in their taste, appearance, and even aroma.    
+           </p>
+        </div>
+        <div>
+           <details onclick="closeAll(thisindex(this));">
+               <summary>Crop Planning</summary>
+            <p>
+                Banana is the Common man's fruit, that gives premium profits
+Banana is a versatile crop, that has many varieties across India, with different tastes and uses, is prefered and been afforded by many people
+The round year availability and low price makes it a common man's fruit
+From growers' point of view
+Banana yields good profit if key practices are done with extra care
+In India this crop is being cultivated in climate ranging from humid tropical to dry mild subtropics through selection of appropriate varieties
+Banana can grow from the poorest to the richest type of soil with varying success
+Except areas which are extremely dry or can have chilling injury, rest all areas are suitable for Banana cultivation.
+               </p></details> 
+            
+            <details onclick="closeAll(thisindex(this));">
+               <summary>Soil</summary>
+            <p>
+                Make soil suitable for banana planting
+The soil should have good drainage, adequate fertility and moisture capacity. Deep, rich loamy and salty clay loam soil with pH between 6-7.5 is most preferred for banana cultivation
+Ill drained, poorly aerated and nutritionally deficient soils are not suitable for banana
+Also Extreme clayey, Sandy soil, Saline soil and Calcareous soil is not suitable for Banana cultivation
+Avoid soils of low lying areas, very sandy and heavy black cotton with ill drainage
+A soil that is not too acidic & not too alkaline, rich in organic material with high nitrogen content, adequate phosphorus level and plenty of potash are good for banana
+Banana, basically a tropical crop, grows well in a temperature range of 15ºC – 35ºC with relative humidity of 75-85%
+               </p></details> 
+            
+             <details onclick="closeAll(thisindex(this));">
+               <summary>Seed</summary>
+            <p>
+                Planting material is key to uniform harvesting and healthy banana crop
+About 70% of the farmers from southern states are using suckers as planting material while the rest farmers from Maharashtra, Gujarat are using tissue culture seedlings.
+Areas where commercial plantations are new, are mainly done by tissue culture plants.
+For sucker planting: Select ‘Sword Suckers’ with broad corm with narrow sword like leaves, from viral, fungal and bacterial disease free mother plants.
+               </p></details> 
+            
+             <details onclick="closeAll(thisindex(this));">
+               <summary>Fertilizers</summary>
+            <p>
+                Right fertilizers as per the stage of banana crop
+The application of 25 % N in organic form, 75 % N in inorganic form along with growing green manure crops is found to be beneficial.
+Application of 25% N as farmyard manure and 1Kg of neem cake is effective.
+Apply 100gm of Nitrogen/plant as top dressing in three equal split doses 60, 90 and 120 days after planting.
+In acidic soils, triple superphosphate or diammonium phosphate is recommended.
+Application of 100gm of K in two splits during vegetative phase should be done.
+Application of 200-300gm K2O is recommended depending upon the cultivar.
+Muriate of potash is generally used as a source of K.
+But in soils with pH above 7.5, potassium sulphate is advantageous.
+               </p></details> 
+            
+             <details onclick="closeAll(thisindex(this));">
+               <summary>Irrigation</summary>
+            <p>
+                Right time of irrigation provides healthy, productive banana crop
+Banana being a succulent, evergreen and shallow rooted crop requires large quantity of water for increasing productivity. Irrigate the fields copiously after every manure application.
+Irrigate immediately after planting; give life irrigation after 4 days; subsequent irrigations are to be given once in a week for garden land bananas and once in 10 – 15 days for wetlands.
+In winter, irrigation is provided at an interval of 7-8 days while in summer it should be given at an interval of 4-5 days.
+However, during rainy season irrigation is provided if required as excess irrigation will lead to root zone congestion due to removal of air from soil pores, thereby affecting plant establishment and growth.
+In all, about 70-75 irrigations are provided to the crop.
+               </p></details> 
+        </div>
+
+    </body>
+</html>

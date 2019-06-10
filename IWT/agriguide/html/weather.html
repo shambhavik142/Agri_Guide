@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Weather</title>
+        <!-- Bootstrap core CSS -->
+        <link href="../../../IWT/agriguide/bootstrap/bootstrap.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="../../../IWT/agriguide/css/weather.css" rel="stylesheet">
+
+        <!--script for weather API-->
+        <script type="text/javascript">
+        function curtemp(loc){
+ var res;
+
+
+ var url="https://api.openweathermap.org/data/2.5/weather?q="+loc+"&appid=73bc31772a9e3d27a086d54c3c405d2e";
+ var Http= new XMLHttpRequest();
+ Http.open("GET", url);
+Http.send();
+Http.onload=(e)=>{
+var data=Http.responseText;
+var jsonResponse = JSON.parse(data);
+res+="<table class='table table-striped'>"
+res+="<tr><td>Name</td><td>"+jsonResponse.name+"</td></tr>";
+res+="<tr><td>Country</td><td>"+jsonResponse.sys.country+"</td></tr>";
+res+="<tr><td>Temperature</td><td>"+Math.round(jsonResponse.main.temp-273)+"&#8451</td></tr>";
+res+="<tr><td>Min Temp</td><td>"+Math.round(jsonResponse.main.temp_min-273)+"&#8451</td></tr>";
+res+="<tr><td>Max Temp</td><td>"+Math.round(jsonResponse.main.temp_max-273)+"&#8451</td></tr>";
+res+="<tr><td>Humidity</td><td>"+jsonResponse.main.humidity+"&#37</td></tr>";
+res+="<tr><td>Wind</td><td>"+jsonResponse.wind.speed+"km/h</td></tr>";
+res+="<tr><td>Description</td><td>"+jsonResponse.weather[0].description+"</td></tr>";
+res+="<tr><td>Longitude</td><td>"+jsonResponse.coord.lon+"</td></tr>";
+res+="<tr><td>Latitude</td><td>"+jsonResponse.coord.lat+"</td></tr>";
+res+="</table>"
+
+           document.getElementById("res").innerHTML =res;
+
+           
+}
+        }
+function forecast(location){
+   var res1;
+
+
+ var url1="https://api.openweathermap.org/data/2.5/forecast?q="+location+"&appid=73bc31772a9e3d27a086d54c3c405d2e";
+ var Http1= new XMLHttpRequest();
+ Http1.open("GET", url1);
+Http1.send();
+Http1.onload=(e)=>{
+var data1=Http1.responseText;
+var jsonResponse1 = JSON.parse(data1); 
+
+res1+="<table class='table table-striped'><tr><td>Name</td><td>"+jsonResponse1.city.name+"</td></tr>";
+res1+="<tr><td>Country</td><td>"+jsonResponse1.city.country+"</td></tr></table>"
+res1+="<table class='table table-striped'><tr><th>Date</th><th>min_temperature</th><th>max_temperature</th></tr>"
+
+res1+="<tr><td>"+jsonResponse1.list[0].dt_txt+"</td><td>"+Math.round(jsonResponse1.list[0].main.temp_min-273)+"&#8451</td>";
+res1+="<td>"+Math.round(jsonResponse1.list[0].main.temp_max-273)+"&#8451</td></tr>";
+
+res1+="<tr><td>"+jsonResponse1.list[1].dt_txt+"</td><td>"+Math.round(jsonResponse1.list[1].main.temp_min-273)+"&#8451</td>";
+res1+="<td>"+Math.round(jsonResponse1.list[1].main.temp_max-273)+"&#8451</td></tr>";
+
+res1+="<tr><td>"+jsonResponse1.list[2].dt_txt+"</td><td>"+Math.round(jsonResponse1.list[2].main.temp_min-273)+"&#8451</td>";
+res1+="<td>"+Math.round(jsonResponse1.list[2].main.temp_max-273)+"&#8451</td></tr>";
+
+res1+="<tr><td>"+jsonResponse1.list[3].dt_txt+"</td><td>"+Math.round(jsonResponse1.list[3].main.temp_min-273)+"&#8451</td>";
+res1+="<td>"+Math.round(jsonResponse1.list[3].main.temp_max-273)+"&#8451</td></tr>";
+
+res1+="<tr><td>"+jsonResponse1.list[4].dt_txt+"</td><td>"+Math.round(jsonResponse1.list[4].main.temp_min-273)+"&#8451</td>";
+res1+="<td>"+Math.round(jsonResponse1.list[4].main.temp_max-273)+"&#8451</td></tr>";
+
+res1+="<tr><td>"+jsonResponse1.list[5].dt_txt+"</td><td>"+Math.round(jsonResponse1.list[5].main.temp_min-273)+"&#8451</td>";
+res1+="<td>"+Math.round(jsonResponse1.list[5].main.temp_max-273)+"&#8451</td></tr>";
+
+res1+="<tr><td>"+jsonResponse1.list[6].dt_txt+"</td><td>"+Math.round(jsonResponse1.list[6].main.temp_min-273)+"&#8451</td>";
+res1+="<td>"+Math.round(jsonResponse1.list[6].main.temp_max-273)+"&#8451</td></tr>";
+
+res1+="</table>"
+document.getElementById("res1").innerHTML =res1;
+}
+}
+
+        
+</script>
+        
+    </head>
+    <body>
+        <div class="navbar navbar-dark bg-dark box-shadow">
+           <h style="color:white">AgriGuide</h>
+        </div>
+       
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <h1 class="display-4">Weather Updates</h1>
+            <p class="lead">This has all the weather information farmers need. Get to know the temperature at your farm location..</p>
+            <h>Current Temperature</h>
+            <p><button onclick="curtemp('bengaluru')">Current Location</button>&nbsp&nbsp&nbsp
+            <input type="text" id="loc" placeholder="enter the location" onmouseout="curtemp(document.getElementById('loc').value)"/></p>
+            <h>Weather Forecast</h>
+            <p><button onclick="forecast('bengaluru')">Current Location</button>&nbsp&nbsp&nbsp
+            <input type="text" id="location" placeholder="enter the location" onmouseout="forecast(document.getElementById('location').value)"/></p>
+        </div>
+        <div class="container">
+            <div class="card-deck mb-3 text-center">
+                <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Date</h4>
+                        <p id="date"></p>
+                    </div>
+                    <div class="card-body">
+                  
+                    <p id="res"></p>
+                    <p id="res1">
+                    </p>
+                   
+                    
+                       
+                       <a href="http://www.farmonlineweather.com.au/agriculture/">Further Details</a> 
+                    </div>
+                </div>
+                 </div>
+            </div>
+       <script>
+       var date=new Date();
+       document.getElementById("date").innerHTML=date;
+       </script>
+    
+    </body>
+</html>
